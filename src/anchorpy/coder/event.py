@@ -15,6 +15,8 @@ from pyheck import snake
 from anchorpy.coder.idl import _typedef_layout
 from anchorpy.program.common import Event
 
+EVENT_DISCRIMINATOR_SIZE = 8  # bytes
+
 
 def _event_discriminator(name: str) -> bytes:
     """Get 8-byte discriminator from event name.
@@ -25,7 +27,7 @@ def _event_discriminator(name: str) -> bytes:
     Returns:
         Discriminator
     """
-    return sha256(f"event:{name}".encode()).digest()[:8]
+    return sha256(f"event:{name}".encode()).digest()[:EVENT_DISCRIMINATOR_SIZE]
 
 
 def _event_layout(event: IdlEvent, idl: Idl) -> Construct:

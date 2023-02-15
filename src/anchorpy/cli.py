@@ -10,6 +10,7 @@ from IPython import embed
 from anchorpy import create_workspace
 from anchorpy.clientgen.accounts import gen_accounts
 from anchorpy.clientgen.errors import gen_errors
+from anchorpy.clientgen.events import gen_events
 from anchorpy.clientgen.instructions import gen_instructions
 from anchorpy.clientgen.program_id import gen_program_id
 from anchorpy.clientgen.types import gen_types
@@ -136,6 +137,8 @@ def client_gen(
     gen_types(idl_obj, out)
     typer.echo("generating accounts...")
     gen_accounts(idl_obj, out)
+    typer.echo("generating events...")
+    gen_events(idl_obj, out)
 
 
 if __name__ == "__main__":

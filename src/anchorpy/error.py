@@ -22,6 +22,10 @@ class AccountInvalidDiscriminator(Exception):
     """Raise if account discriminator doesn't match the IDL."""
 
 
+class EventInvalidDiscriminator(Exception):
+    """Raise if event discriminator doesn't match the IDL."""
+
+
 class IdlNotFoundError(Exception):
     """Raise when requested IDL account does not exist."""
 
